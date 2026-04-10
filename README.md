@@ -104,6 +104,12 @@ Whether it's a bug fix, new feature, translation, or documentation improvement â
 
 BLE protocol implementation based on [purelinepro](https://github.com/bwynants/purelinepro) by [@bwynants](https://github.com/bwynants) â€” an ESPHome C++ component for ESP32 BLE control of Novy Pureline Pro hoods. The C++ codebase served as the protocol reference for command IDs, packet structures, and Nordic UART Service implementation.
 
+## Disclaimer
+
+This project is **not affiliated with, endorsed by, or associated with Novy** in any way. It is an independent, community-driven integration created by reverse-engineering the BLE protocol.
+
+Use this software at your own risk. The authors accept no liability for any damage, malfunction, or warranty issues arising from the use of this integration with your Novy appliance.
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
