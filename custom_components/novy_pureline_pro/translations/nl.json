@@ -1,0 +1,25 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Novy Pureline Pro",
+        "description": "Selecteer je Novy Pureline Pro afzuigkap of voer het MAC-adres handmatig in.",
+        "data": {
+          "address": "MAC-adres"
+        }
+      },
+      "confirm": {
+        "title": "Bevestigen",
+        "description": "Wil je {name} toevoegen?"
+      }
+    },
+    "abort": {
+      "already_configured": "Apparaat is al geconfigureerd",
+      "no_devices_found": "Geen Novy apparaten gevonden",
+      "cannot_connect": "Kan geen verbinding maken met apparaat"
+    },
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken met apparaat"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+name: Bug Report
+description: Report a bug with the Novy Pureline Pro integration
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the bug.
+    validations:
+      required: true
+
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant Version
+      placeholder: e.g. 2024.4.0
+    validations:
+      required: true
+
+  - type: input
+    id: integration_version
+    attributes:
+      label: Integration Version
+      placeholder: e.g. 1.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: ble_adapter
+    attributes:
+      label: BLE Adapter Info
+      description: Brand and model of your Bluetooth adapter.
+      placeholder: e.g. Intel AX210, Raspberry Pi built-in
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the bug.
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: debug_logs
+    attributes:
+      label: Debug Logs
+      description: >
+        Enable debug logging for the integration and paste the relevant logs here.
+        Add to `configuration.yaml`: `logger: logs: custom_components.novy_pureline_pro: debug`
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other context, screenshots, or information about the problem.
+    validations:
+      required: false

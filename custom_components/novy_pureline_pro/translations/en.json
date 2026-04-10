@@ -1,0 +1,25 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Novy Pureline Pro",
+        "description": "Select your Novy Pureline Pro hood or enter MAC address manually.",
+        "data": {
+          "address": "MAC Address"
+        }
+      },
+      "confirm": {
+        "title": "Confirm",
+        "description": "Do you want to add {name}?"
+      }
+    },
+    "abort": {
+      "already_configured": "Device is already configured",
+      "no_devices_found": "No Novy devices found",
+      "cannot_connect": "Could not connect to device"
+    },
+    "error": {
+      "cannot_connect": "Could not connect to device"
+    }
+  }
+}
