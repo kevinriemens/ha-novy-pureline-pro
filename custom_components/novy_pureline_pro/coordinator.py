@@ -138,7 +138,18 @@ class NovyCoordinator(DataUpdateCoordinator[NovyState]):
 
     @callback
     def set_unavailable(self) -> None:
-        """Mark device as unavailable (called when BLE goes away)."""
+        """Mark device as unavailable (called when BLE advertisements stop).
+
+        The hood stops advertising while a client is connected, so the
+        scanner's unavailable callback is not a reliable signal in that
+        situation — ignore it as long as we still hold a live connection.
+        """
+        if self._client is not None and self._client.is_connected:
+            _LOGGER.debug(
+                "Ignoring unavailable callback for %s — BLE link is still connected",
+                self._name,
+            )
+            return
         self._state.available = False
         self.async_set_updated_data(self._state)
 
@@ -204,6 +215,11 @@ class NovyCoordinator(DataUpdateCoordinator[NovyState]):
     def _on_notification(self, _sender: int, data: bytearray) -> None:
         """Handle incoming BLE notifications from the TX characteristic."""
         raw = bytes(data)
+
+        # Any inbound traffic (ASCII ACK or binary status) proves the device
+        # is alive, so self-heal the flag here — it can never stay latched
+        # False while data keeps flowing.
+        self._state.available = True
 
         # ASCII ACK response (e.g. command echo) — just unblock the caller
         if raw and raw[0:1] == b"[":
